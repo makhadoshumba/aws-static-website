@@ -13,3 +13,7 @@ With Git, I was able to create a CI/CD pipeline that allows me to update my code
 This is the perfect and efficient solution for a very capable but lazy engineer like myself.
 
 This here is a solution for efficiency.
+
+here is a daigram explaining the whole project:
+
+
