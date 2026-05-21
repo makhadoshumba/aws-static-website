@@ -16,4 +16,6 @@ This here is a solution for efficiency.
 
 here is a daigram explaining the whole project:
 
-
+<p align="center">
+  <img src="assets/architecture-diagram.png" width="900">
+</p>
