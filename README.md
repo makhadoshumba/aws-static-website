@@ -8,7 +8,7 @@ So I thought to myself, "Why not simplify the process of updating the code?"
 
 That's where GitHub comes in, my friend. It allows me to automate this process and reduce the time it takes to update the code.
 
-With Git, I was able to create a CI/CD pipeline that allows me to update my code right after saving it locally in my compiler and then, using my PowerShell terminal, deploy it with just 3 lines of code — very short code at that.
+With Git, I was able to create a CI/CD pipeline that allows me to update my code right after saving it locally in my compiler and then, using my PowerShell terminal, deploy it with just 3 lines of code, very short code at that.
 
 This is the perfect and efficient solution for a very capable but lazy engineer like myself.
 
