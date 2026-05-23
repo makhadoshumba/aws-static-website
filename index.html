@@ -65,18 +65,27 @@ nav{
   backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(255,255,255,0.08);
   z-index:1000;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .logo{
   font-weight:700;
   color:#60a5fa;
+  font-size:1rem;
+}
+
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
 .links a{
-  margin-left:18px;
   text-decoration:none;
   color:#94a3b8;
   transition:0.2s;
+  font-size:0.95rem;
 }
 
 .links a:hover{
@@ -90,14 +99,13 @@ nav{
 }
 
 .hero h1{
-  font-size:4rem;
+  font-size:clamp(2.2rem, 5vw, 4rem);
   font-weight:700;
   letter-spacing:-1px;
 }
 
-/* typing effect text */
 .typing{
-  font-size:1.25rem;
+  font-size:clamp(1rem, 2.5vw, 1.25rem);
   margin-top:14px;
   color:#93c5fd;
   min-height:30px;
@@ -108,15 +116,19 @@ nav{
   margin-top:10px;
   max-width:700px;
   margin-inline:auto;
+  font-size:clamp(0.9rem, 2vw, 1rem);
 }
 
 .badges{
   margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
 }
 
 .badges span{
   display:inline-block;
-  margin:6px;
   padding:10px 14px;
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.08);
@@ -155,7 +167,7 @@ h2{
 /* SKILLS */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
   gap:16px;
 }
 
@@ -176,14 +188,14 @@ h2{
 /* PROJECTS */
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
 }
 
-/* 3D WOW CARD */
+/* CARD */
 .card{
   position:relative;
-  height:420px;
+  min-height:380px;
   border-radius:24px;
   overflow:hidden;
   display:flex;
@@ -211,7 +223,6 @@ h2{
   transform:perspective(800px) rotateX(6deg) rotateY(-6deg) scale(1.04);
 }
 
-/* CONTENT */
 .card-content{
   position:relative;
   z-index:2;
@@ -223,12 +234,12 @@ h2{
 }
 
 .card h3{
-  font-size:1.4rem;
+  font-size:1.2rem;
   color:#fff;
 }
 
 .card p{
-  font-size:0.95rem;
+  font-size:0.9rem;
   color:#cbd5e1;
   margin-top:6px;
   margin-bottom:12px;
@@ -250,7 +261,7 @@ h2{
   margin-top:14px;
   display:flex;
   justify-content:space-between;
-  font-size:0.85rem;
+  font-size:0.8rem;
   color:#94a3b8;
 }
 
@@ -269,6 +280,7 @@ h2{
   border:1px solid rgba(255,255,255,0.08);
   padding:26px;
   border-radius:18px;
+  word-break:break-word;
 }
 
 /* SCROLL ANIMATION */
@@ -289,6 +301,77 @@ footer{
   padding:35px;
   color:#94a3b8;
   border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 768px){
+
+  nav{
+    padding:14px 6%;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero{
+    padding:120px 16px 80px;
+  }
+
+  section{
+    padding:70px 6%;
+  }
+
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    min-height:340px;
+  }
+}
+
+@media (max-width: 480px){
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  h2{
+    font-size:1.5rem;
+  }
+
+  .btn{
+    width:100%;
+    text-align:center;
+  }
+
+  .links{
+    width:100%;
+    justify-content:flex-start;
+  }
+
+  .card-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove visited link purple color */
+a:visited {
+  color: inherit;
+}
+
+/* Optional: remove focus outline styling on click */
+a:focus, a:active {
+  outline: none;
+}
 }
 
 </style>
@@ -327,15 +410,15 @@ footer{
  <p>
     I am a final-year Software Engineering student with a strong academic track record across completed modules and a growing specialization in cloud computing, DevOps, and distributed systems.
   </p>
-<b>
+
   <p>
     My focus is on building and deploying real-world cloud-based solutions using AWS and Azure. I have hands-on experience working with CI/CD pipelines, serverless architectures, and static website hosting, with an emphasis on automation, scalability, and reliability.
   </p>
-<b>
+
   <p>
     Through personal projects and continuous learning, I am developing a strong foundation in cloud architecture principles, infrastructure as code concepts, and modern cloud-native application design.
   </p>
-<b>
+
   <p>
     My long-term goal is to grow into a Cloud Engineer role and eventually progress into Cloud Architecture, where I can design and optimize large-scale, resilient systems.
   </p>
@@ -377,6 +460,7 @@ footer{
       </div>
     </div>
 </a>
+
 <a href="https://github.com/makhadoshumba/aws-static-website" target="_blank" class="card-link">
     <div class="card aws-bg">
       <div class="card-content">
