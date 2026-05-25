@@ -14,7 +14,7 @@ This is the perfect and efficient solution for a very capable but lazy engineer 
 
 This here is a solution for efficiency.
 
-here is a daigram explaining the whole project:
+Here is a diagram explaining the whole project:
 
 <p align="center">
   <img src="assets/architecture-diagram.png" width="900">
