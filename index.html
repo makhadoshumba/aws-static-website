@@ -5,373 +5,272 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Shumba Makhado | Cloud Engineer</title>
 
-<link rel="icon" type="image/png"
-href="https://cdn-icons-png.flaticon.com/512/4144/4144416.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
+:root{
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+
+  --primary:#2563eb;
+  --primary-soft:#e0e7ff;
+
+  --accent:#06b6d4;
+  --green:#22c55e;
+
+  --border:#e5e7eb;
+}
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
+  font-family:Inter, sans-serif;
 }
 
 body{
-  background:#070b14;
-  color:#e5e7eb;
-  overflow-x:hidden;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
 
-/* BACKGROUND GRID */
 body::before{
   content:"";
   position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(96,165,250,0.15), transparent 40%),
-    radial-gradient(circle at 80% 60%, rgba(139,92,246,0.12), transparent 45%),
-    linear-gradient(to bottom, #070b14, #050816);
-  z-index:-2;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,var(--primary),var(--accent),var(--green));
 }
 
-body::after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size:60px 60px;
-  opacity:0.25;
-  z-index:-1;
-}
-
-/* NAV */
 nav{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  padding:18px 10%;
+  padding:18px 9%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
-  background:rgba(10,15,30,0.6);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:1000;
-  flex-wrap:wrap;
-  gap:10px;
+  z-index:10;
 }
 
 .logo{
-  font-weight:700;
-  color:#60a5fa;
-  font-size:1rem;
-}
-
-.links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+  font-weight:600;
+  font-size:14px;
+  color:var(--text);
+  letter-spacing:0.3px;
 }
 
 .links a{
+  margin-left:18px;
   text-decoration:none;
-  color:#94a3b8;
+  color:var(--muted);
+  font-size:14px;
   transition:0.2s;
-  font-size:0.95rem;
+  position:relative;
+}
+
+.links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:2px;
+  background:var(--primary);
+  transition:0.3s;
 }
 
 .links a:hover{
-  color:#60a5fa;
+  color:var(--primary);
 }
 
-/* HERO */
+.links a:hover::after{
+  width:100%;
+}
+
 .hero{
-  text-align:center;
-  padding:150px 20px 100px;
+  padding:110px 9% 70px;
+  max-width:950px;
 }
 
 .hero h1{
-  font-size:clamp(2.2rem, 5vw, 4rem);
-  font-weight:700;
-  letter-spacing:-1px;
-}
-
-.typing{
-  font-size:clamp(1rem, 2.5vw, 1.25rem);
-  margin-top:14px;
-  color:#93c5fd;
-  min-height:30px;
+  font-size:46px;
+  font-weight:600;
+  letter-spacing:-0.5px;
 }
 
 .hero p{
-  color:#94a3b8;
-  margin-top:10px;
-  max-width:700px;
-  margin-inline:auto;
-  font-size:clamp(0.9rem, 2vw, 1rem);
+  margin-top:12px;
+  color:var(--muted);
+  font-size:16px;
+  max-width:650px;
 }
 
-.badges{
-  margin-top:30px;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:10px;
-}
-
-.badges span{
-  display:inline-block;
-  padding:10px 14px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:999px;
-  font-size:0.85rem;
+.meta{
+  margin-top:14px;
+  font-size:14px;
+  color:#334155;
 }
 
 .btn{
   display:inline-block;
-  margin-top:30px;
-  padding:12px 24px;
-  background:#60a5fa;
-  color:#0b1220;
+  margin-top:22px;
+  padding:11px 16px;
+  background:var(--primary);
+  color:#fff;
+  font-size:14px;
   border-radius:10px;
   text-decoration:none;
-  font-weight:600;
-  transition:0.25s;
+  transition:0.2s;
+  box-shadow:0 8px 20px rgba(37,99,235,0.2);
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(96,165,250,0.25);
+  transform:translateY(-2px);
+  background:#1d4ed8;
 }
 
-/* SECTIONS */
 section{
-  padding:90px 10%;
+  padding:60px 9%;
+  max-width:950px;
+}
+
+section:not(:first-of-type){
+  margin-top:10px;
 }
 
 h2{
-  font-size:1.9rem;
-  margin-bottom:26px;
-  color:#60a5fa;
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:16px;
+  color:var(--primary);
 }
 
-/* SKILLS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:16px;
+p{
+  margin-bottom:12px;
+  font-size:15px;
+  color:var(--muted);
 }
 
-.grid div{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:18px;
-  border-radius:14px;
-  text-align:center;
-  transition:0.3s;
-}
-
-.grid div:hover{
-  transform:translateY(-5px);
-  border-color:#60a5fa;
-}
-
-/* PROJECTS */
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-/* CARD */
-.card{
-  position:relative;
-  min-height:380px;
-  border-radius:24px;
-  overflow:hidden;
+.skills{
   display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:24px;
-  background-size:cover;
-  background-position:center;
-  transition:0.4s ease;
-  transform-style:preserve-3d;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.card::before{
+.skills span{
+  padding:7px 12px;
+  font-size:13px;
+  border-radius:999px;
+
+  background:linear-gradient(180deg,#eef2ff,#ffffff);
+  border:1px solid var(--primary-soft);
+  color:#3730a3;
+
+  transition:0.2s;
+}
+
+.skills span:hover{
+  transform:translateY(-2px);
+  border-color:var(--primary);
+}
+
+.project{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:14px;
+  transition:0.25s;
+  box-shadow:0 1px 2px rgba(0,0,0,0.03);
+  position:relative;
+  overflow:hidden;
+}
+
+.project::before{
   content:"";
   position:absolute;
-  inset:0;
-  background:linear-gradient(to top,
-    rgba(0,0,0,0.95),
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.1)
-  );
+  left:0;
+  top:0;
+  width:4px;
+  height:100%;
+  background:linear-gradient(180deg,var(--primary),var(--accent));
 }
 
-.card:hover{
-  transform:perspective(800px) rotateX(6deg) rotateY(-6deg) scale(1.04);
+.project:hover{
+  transform:translateY(-3px);
+  border-color:var(--primary-soft);
+  box-shadow:0 12px 28px rgba(37,99,235,0.08);
 }
 
-.card-content{
-  position:relative;
-  z-index:2;
-  background:rgba(15,23,42,0.6);
-  backdrop-filter:blur(14px);
-  padding:18px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,0.08);
+.project h3{
+  font-size:16px;
+  font-weight:600;
+  color:var(--text);
 }
 
-.card h3{
-  font-size:1.2rem;
-  color:#fff;
+.project p{
+  font-size:14px;
+  color:var(--muted);
 }
 
-.card p{
-  font-size:0.9rem;
-  color:#cbd5e1;
-  margin-top:6px;
-  margin-bottom:12px;
+.project a{
+  font-size:13px;
+  color:var(--primary);
+  text-decoration:none;
 }
 
-.tag{
-  display:inline-block;
-  margin-top:6px;
-  margin-right:6px;
-  padding:6px 12px;
-  background:rgba(96,165,250,0.15);
-  border:1px solid rgba(96,165,250,0.25);
-  border-radius:999px;
-  font-size:0.75rem;
-  color:#cfe6ff;
+.contact{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-left:4px solid var(--primary);
+  border-radius:14px;
+  padding:16px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.03);
 }
 
-.card-footer{
-  margin-top:14px;
-  display:flex;
-  justify-content:space-between;
-  font-size:0.8rem;
-  color:#94a3b8;
+.contact p{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:6px;
 }
 
-/* BACKGROUNDS */
-.azure-bg{
-  background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop');
+a{
+  color:var(--primary);
+  text-decoration:none;
 }
 
-.aws-bg{
-  background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop');
+a:hover{
+  text-decoration:underline;
 }
 
-/* CONTACT */
-.contact-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:26px;
-  border-radius:18px;
-  word-break:break-word;
-}
-
-/* SCROLL ANIMATION */
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* FOOTER */
 footer{
-  text-align:center;
-  padding:35px;
+  padding:40px 9%;
+  font-size:13px;
   color:#94a3b8;
-  border-top:1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================
-   MOBILE RESPONSIVENESS
-========================= */
-
-@media (max-width: 768px){
+@media(max-width:768px){
+  .hero h1{
+    font-size:34px;
+  }
 
   nav{
-    padding:14px 6%;
     flex-direction:column;
     align-items:flex-start;
+    gap:10px;
   }
 
-  .hero{
-    padding:120px 16px 80px;
+  .links a{
+    margin-left:0;
+    margin-right:12px;
   }
-
-  section{
-    padding:70px 6%;
-  }
-
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    min-height:340px;
-  }
-}
-
-@media (max-width: 480px){
-
-  .hero h1{
-    font-size:2rem;
-  }
-
-  h2{
-    font-size:1.5rem;
-  }
-
-  .btn{
-    width:100%;
-    text-align:center;
-  }
-
-  .links{
-    width:100%;
-    justify-content:flex-start;
-  }
-
-  .card-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Remove visited link purple color */
-a:visited {
-  color: inherit;
-}
-
-/* Optional: remove focus outline styling on click */
-a:focus, a:active {
-  outline: none;
-}
 }
 
 </style>
@@ -389,137 +288,93 @@ a:focus, a:active {
   </div>
 </nav>
 
-<header class="hero reveal">
+<header class="hero">
   <h1>Shumba Makhado</h1>
 
-  <div class="typing" id="typing"></div>
+  <p>
+    Cloud Engineer focused on AWS, Azure, CI/CD pipelines and scalable systems.
+  </p>
 
-  <p>Cloud Engineer focused on AWS, Azure, CI/CD pipelines & scalable cloud systems.</p>
-
-  <div class="badges">
-    <span>☁ AWS Certified</span>
-    <span>☁ Azure AZ-900</span>
-    <span>🎓 Final-Year Software Engineering</span>
+  <div class="meta">
+    AWS Certified · Azure AZ-900 · Final-year Software Engineering Student
   </div>
 
-  <a href="#projects" class="btn">View Projects</a>
+  <a class="btn" href="#projects">View Projects</a>
 </header>
 
-<section id="about" class="reveal">
-  <h2>About Me</h2>
- <p>
-    I am a final-year Software Engineering student with a strong academic track record across completed modules and a growing specialization in cloud computing, DevOps, and distributed systems.
+<section id="about">
+  <h2>About</h2>
+
+  <p>
+    I am a final-year Software Engineering student with a strong academic background in software development, cloud computing, and distributed systems.
   </p>
 
   <p>
-    My focus is on building and deploying real-world cloud-based solutions using AWS and Azure. I have hands-on experience working with CI/CD pipelines, serverless architectures, and static website hosting, with an emphasis on automation, scalability, and reliability.
+    My focus is building cloud-based solutions using AWS and Azure, with experience in CI/CD pipelines, serverless architecture, and automation.
   </p>
 
   <p>
-    Through personal projects and continuous learning, I am developing a strong foundation in cloud architecture principles, infrastructure as code concepts, and modern cloud-native application design.
-  </p>
-
-  <p>
-    My long-term goal is to grow into a Cloud Engineer role and eventually progress into Cloud Architecture, where I can design and optimize large-scale, resilient systems.
+    My long-term goal is to become a Cloud Engineer and later progress into Cloud Architecture.
   </p>
 </section>
 
-<section id="skills" class="reveal">
+<section id="skills">
   <h2>Skills</h2>
 
-  <div class="grid">
-    <div>AWS</div>
-    <div>Azure</div>
-    <div>CI/CD</div>
-    <div>Python</div>
-    <div>Linux</div>
-    <div>Git</div>
-    <div>SQL</div>
-    <div>Cloud Architecture</div>
+  <div class="skills">
+    <span>AWS</span>
+    <span>Azure</span>
+    <span>CI/CD</span>
+    <span>Python</span>
+    <span>Linux</span>
+    <span>Git</span>
+    <span>SQL</span>
+    <span>HTML</span>
+    <span>JavaScript</span>
   </div>
 </section>
 
-<section id="projects" class="reveal">
+<section id="projects">
   <h2>Projects</h2>
 
-  <div class="projects-grid">
-<a href="https://github.com/makhadoshumba/cloud-ci-cd-monitor" target="_blank" class="card-link">
-    <div class="card azure-bg">
-      <div class="card-content">
-        <h3>Azure CI/CD Monitor</h3>
-        <p>Cloud system monitoring deployment pipelines.</p>
-
-        <span class="tag">Azure</span>
-        <span class="tag">CI/CD</span>
-        <span class="tag">Monitoring</span>
-
-        <div class="card-footer">
-          <span>Cloud Project</span>
-          <span>GitHub →</span>
-        </div>
-      </div>
-    </div>
-</a>
-
-<a href="https://github.com/makhadoshumba/aws-static-website" target="_blank" class="card-link">
-    <div class="card aws-bg">
-      <div class="card-content">
-        <h3>AWS Static Website</h3>
-        <p>Static portfolio hosted on AWS S3 with a GitHub CI/CD deployment pipeline.</p>
-
-        <span class="tag">AWS</span>
-        <span class="tag">S3</span>
-
-        <div class="card-footer">
-          <span>Cloud Project</span>
-          <span>GitHub →</span>
-        </div>
-      </div>
-    </div>
-</a>
+  <div class="project">
+    <h3>Azure CI/CD Monitor</h3>
+    <p>Cloud system monitoring deployment pipelines.</p>
+    <a href="https://github.com/makhadoshumba/cloud-ci-cd-monitor" target="_blank">
+      GitHub →
+    </a>
   </div>
+
+  <div class="project">
+    <h3>AWS Static Website</h3>
+    <p>Static portfolio hosted on AWS S3 with CI/CD deployment pipeline.</p>
+    <a href="https://github.com/makhadoshumba/aws-static-website" target="_blank">
+      GitHub →
+    </a>
+  </div>
+
 </section>
 
-<section id="contact" class="reveal">
+<section id="contact">
   <h2>Contact</h2>
 
-  <div class="contact-card">
-    <p>📧 makhadoshumba@gmail.com</p>
-    <p>📞 067 943 5936</p>
-    <p>🐙 <a href="https://github.com/makhadoshumba">github.com/makhadoshumba</p></a>
-    <p>💼 <a href="https://www.linkedin.com/in/shumba-makhado-1ab6551a8/">www.linkedin.com/in/shumba-makhado-38631b411</p></a>
+  <div class="contact">
+    <p>Email: makhadoshumba@gmail.com</p>
+    <p>Phone: 067 943 5936</p>
+    <p>
+      GitHub:
+      <a href="https://github.com/makhadoshumba">github.com/makhadoshumba</a>
+    </p>
+    <p>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/shumba-makhado-1ab6551a8/">linkedin.com/in/shumba-makhado-38631b411</a>
+    </p>
   </div>
 </section>
 
 <footer>
   © 2026 Shumba Makhado — Cloud Portfolio
 </footer>
-
-<script>
-// typing effect
-const text = "Aspiring Cloud Engineer | AWS & Azure | DevOps & CI/CD";
-let i = 0;
-
-function type(){
-  if(i < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type, 60);
-  }
-}
-type();
-
-// scroll reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-  });
-});
-
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
