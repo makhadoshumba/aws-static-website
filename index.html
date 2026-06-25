@@ -364,6 +364,156 @@ footer{
 
 }
 
+/* ===== CERTIFICATE CAROUSEL (FINAL REFINE) ===== */
+
+#certifications h2{
+  margin-bottom:65px;
+}
+
+.carousel-wrapper{
+  width:100%;
+  min-height:620px;
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:2000px;
+  overflow:visible;
+}
+
+.carousel{
+  position:relative;
+  width:100%;
+  max-width:850px;
+  height:480px;
+  transform-style:preserve-3d;
+  animation:rotateCarousel 20s linear infinite;
+}
+
+.carousel:hover{
+  animation-play-state:paused;
+}
+
+/* soft glow background */
+.carousel::before{
+  content:"";
+  position:absolute;
+  width:550px;
+  height:550px;
+  background:radial-gradient(
+    circle,
+    rgba(59,130,246,.22),
+    transparent 70%
+  );
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  z-index:-1;
+  filter:blur(65px);
+}
+
+/* certificate cards */
+.carousel-item{
+  position:absolute;
+  width:540px;
+  height:370px;
+  border-radius:18px;
+  overflow:hidden;
+  background:#ffffff;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 22px 45px rgba(0,0,0,.35);
+  transition:0.4s ease;
+}
+
+.carousel-item img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#ffffff;
+}
+
+/* hover effect */
+.carousel-item:hover{
+  transform:scale(1.06) !important;
+  border-color:#3b82f6;
+  box-shadow:0 28px 60px rgba(59,130,246,.35);
+}
+
+/* 3D ring positioning */
+.carousel-item:nth-child(1){
+  transform:rotateY(0deg) translateZ(520px);
+}
+
+.carousel-item:nth-child(2){
+  transform:rotateY(72deg) translateZ(520px);
+}
+
+.carousel-item:nth-child(3){
+  transform:rotateY(144deg) translateZ(520px);
+}
+
+.carousel-item:nth-child(4){
+  transform:rotateY(216deg) translateZ(520px);
+}
+
+.carousel-item:nth-child(5){
+  transform:rotateY(288deg) translateZ(520px);
+}
+
+/* animation */
+@keyframes rotateCarousel{
+  from{
+    transform:rotateY(0deg);
+  }
+  to{
+    transform:rotateY(360deg);
+  }
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+  #certifications h2{
+    margin-bottom:50px;
+  }
+
+  .carousel-wrapper{
+    min-height:480px;
+    margin-top:25px;
+  }
+
+  .carousel{
+    height:340px;
+    max-width:100%;
+  }
+
+  .carousel-item{
+    width:340px;
+    height:230px;
+  }
+
+  .carousel-item:nth-child(1){
+    transform:rotateY(0deg) translateZ(360px);
+  }
+
+  .carousel-item:nth-child(2){
+    transform:rotateY(72deg) translateZ(360px);
+  }
+
+  .carousel-item:nth-child(3){
+    transform:rotateY(144deg) translateZ(360px);
+  }
+
+  .carousel-item:nth-child(4){
+    transform:rotateY(216deg) translateZ(360px);
+  }
+
+  .carousel-item:nth-child(5){
+    transform:rotateY(288deg) translateZ(360px);
+  }
+}
+
 </style>
 
 </head>
@@ -377,6 +527,7 @@ footer{
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+    <a href="#certifications">Certifications</a>
   </div>
 </nav>
 
@@ -436,6 +587,30 @@ footer{
   </div>
 </section>
 
+<section id="certifications">
+  <h2>Certifications</h2>
+
+  <div class="carousel-wrapper">
+
+    <div class="carousel">
+
+      <div class="carousel-item">
+        <img src="assets/aws.png"
+             alt="AWS Cloud Practitioner">
+      </div>
+
+      <div class="carousel-item">
+        <img src="assets/az-900.png"
+             alt="Azure AZ-900">
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
 <section id="projects">
   <h2>Projects</h2>
 
@@ -474,6 +649,8 @@ footer{
   </div>
 
 </section>
+
+
 
 <section id="contact">
   <h2>Contact</h2>
