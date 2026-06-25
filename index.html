@@ -514,6 +514,34 @@ footer{
   }
 }
 
+
+/* ===== BACK TO TOP BUTTON ===== */
+
+#backToTop{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:linear-gradient(135deg,#2563eb,#06b6d4);
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  transition:.3s ease;
+  z-index:999;
+}
+
+#backToTop:hover{
+  transform:translateY(-4px) scale(1.1);
+  box-shadow:0 15px 35px rgba(6,182,212,.4);
+}
+
 </style>
 
 </head>
@@ -525,9 +553,9 @@ footer{
   <div class="links">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-    <a href="#certifications">Certifications</a>
   </div>
 </nav>
 
@@ -672,6 +700,27 @@ footer{
 <footer>
   © 2026 Shumba Makhado — Cloud Portfolio
 </footer>
+
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
+<script>
+const btn = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.style.display = "flex";
+  } else {
+    btn.style.display = "none";
+  }
+});
+
+function scrollToTop(){
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+</script>
 
 </body>
 </html>
