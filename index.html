@@ -364,6 +364,7 @@ footer{
 
 }
 
+
 /* ===== CERTIFICATE CAROUSEL (FINAL REFINE) ===== */
 
 #certifications h2{
@@ -381,6 +382,8 @@ footer{
   overflow:visible;
 }
 
+/* ===== DESKTOP CAROUSEL ===== */
+
 .carousel{
   position:relative;
   width:100%;
@@ -394,7 +397,7 @@ footer{
   animation-play-state:paused;
 }
 
-/* soft glow background */
+/* glow background */
 .carousel::before{
   content:"";
   position:absolute;
@@ -470,7 +473,8 @@ footer{
   }
 }
 
-/* ===== MOBILE ===== */
+
+/* ===== MOBILE OPTIMIZED (FIXED TOUCH LAG) ===== */
 
 @media(max-width:768px){
 
@@ -479,38 +483,57 @@ footer{
   }
 
   .carousel-wrapper{
-    min-height:480px;
-    margin-top:25px;
+    min-height:420px;
+    margin-top:20px;
+    touch-action: pan-y; /* prevents horizontal scroll interference */
   }
 
   .carousel{
-    height:340px;
+    height:320px;
     max-width:100%;
+    animation-duration:35s; /* slower = smoother on mobile */
+    transform-style:flat; /* major performance boost */
+  }
+
+  .carousel::before{
+    display:none; /* removes heavy blur glow on mobile for performance */
   }
 
   .carousel-item{
-    width:340px;
-    height:230px;
+    width:300px;
+    height:210px;
+    backface-visibility:hidden;
   }
 
+  .carousel-item img{
+    object-fit:contain;
+  }
+
+  /* disable hover effects on touch devices */
+  .carousel-item:hover{
+    transform:none !important;
+    box-shadow:0 22px 45px rgba(0,0,0,.35);
+  }
+
+  /* reduced 3D radius for smoother motion */
   .carousel-item:nth-child(1){
-    transform:rotateY(0deg) translateZ(360px);
+    transform:rotateY(0deg) translateZ(300px);
   }
 
   .carousel-item:nth-child(2){
-    transform:rotateY(72deg) translateZ(360px);
+    transform:rotateY(72deg) translateZ(300px);
   }
 
   .carousel-item:nth-child(3){
-    transform:rotateY(144deg) translateZ(360px);
+    transform:rotateY(144deg) translateZ(300px);
   }
 
   .carousel-item:nth-child(4){
-    transform:rotateY(216deg) translateZ(360px);
+    transform:rotateY(216deg) translateZ(300px);
   }
 
   .carousel-item:nth-child(5){
-    transform:rotateY(288deg) translateZ(360px);
+    transform:rotateY(288deg) translateZ(300px);
   }
 }
 
@@ -659,7 +682,7 @@ footer{
   </div>
 
     <div class="project">
-    <h3>COMMUNITY PORTAL WEBSITE (FULL STACK WEB APPLICATION)</h3>
+    <h3>Community Portal Website (Full Stack Web App)</h3>
     <p>Full-stack Mondeor Community Portal, featuring alerts, complaint submission, role-based admin/super-admin dashboards, secure authentication, database integration, and a CI/CD pipeline for seamless production deployment.</p>
     <a href="https://github.com/makhadoshumba/Community-Portal-Website" target="_blank">
       GitHub →
@@ -667,7 +690,7 @@ footer{
     </div>
 
       <div class="project">
-    <h3>AZURE SQL DATABASE MIGRATION</h3>
+    <h3>Azure SQL Database Migration</h3>
     <p>Built a serverless CI/CD monitoring dashboard using Azure Functions and GitHub API to track deployment status in real time and improve pipeline visibility.</p>
     <a href="https://github.com/makhadoshumba/DB-Migration-From-Local-Server-To-Azure-Sql-Cloud-Server" target="_blank">
       GitHub →
