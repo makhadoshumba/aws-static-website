@@ -31,6 +31,7 @@
   scroll-behavior:smooth;
 }
 
+
 body{
   background:
       radial-gradient(circle at top left,#1e3a8a 0%,transparent 35%),
@@ -365,6 +366,13 @@ footer{
 }
 
 
+
+/* ===== GLOBAL FIX (PREVENT HORIZONTAL STRETCH) ===== */
+html, body{
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* ===== CERTIFICATE CAROUSEL (FINAL REFINE) ===== */
 
 #certifications h2{
@@ -380,7 +388,7 @@ footer{
   justify-content:center;
   align-items:center;
   perspective:2000px;
-  overflow:visible;
+  overflow:hidden; /* FIX: prevents horizontal overflow */
 }
 
 /* ===== CAROUSEL ===== */
@@ -473,8 +481,7 @@ footer{
   }
 }
 
-
-/* ===== MOBILE FIX (NO LAYOUT CHANGE ON DESKTOP) ===== */
+/* ===== MOBILE FIX ===== */
 @media(max-width:600px){
 
   #certifications h2{
@@ -484,14 +491,14 @@ footer{
   .carousel-wrapper{
     min-height:420px;
     margin-top:25px;
-    overflow:hidden; /* prevents cards going out of frame */
-    perspective:1000px; /* reduced for mobile stability */
+    perspective:1000px;
+    overflow:hidden; /* IMPORTANT FIX */
   }
 
   .carousel{
     height:320px;
     max-width:100%;
-    animation:rotateCarousel 25s linear infinite; /* slightly slower for smoothness */
+    animation:rotateCarousel 25s linear infinite;
   }
 
   .carousel::before{
@@ -510,13 +517,13 @@ footer{
     object-fit:contain;
   }
 
-  /* remove hover/touch interference */
+  /* disable hover on mobile */
   .carousel-item:hover{
     transform:none !important;
     box-shadow:0 22px 45px rgba(0,0,0,.35);
   }
 
-  /* FIX: reduce translateZ so it stays inside screen */
+  /* reduced radius to prevent overflow */
   .carousel-item:nth-child(1){
     transform:rotateY(0deg) translateZ(250px);
   }
@@ -537,7 +544,6 @@ footer{
     transform:rotateY(288deg) translateZ(250px);
   }
 }
-
 
 /* ===== BACK TO TOP BUTTON ===== */
 
