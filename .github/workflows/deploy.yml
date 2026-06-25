@@ -20,8 +20,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
 
-      - name: Deploy index.html ONLY (no sync issues)
+      - name: Deploy full website to S3
         run: |
-          aws s3 cp index.html s3://shumba-cloud-portfolio/index.html \
-            --content-type "text/html" \
-            --cache-control "no-cache"
+          aws s3 sync . s3://shumba-cloud-portfolio \
+            --delete \
+            --exclude ".git/*" \
+            --exclude ".github/*"
