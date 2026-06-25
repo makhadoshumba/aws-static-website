@@ -370,16 +370,14 @@ footer{
 /* ===== GLOBAL FIX (PREVENT HORIZONTAL STRETCH) ===== */
 html, body{
   overflow-x: hidden;
-  max-width: 100%;
 }
 
-/* ===== CERTIFICATE CAROUSEL (FINAL REFINE) ===== */
-
+/* ===== CERTIFICATIONS TITLE ===== */
 #certifications h2{
   margin-bottom:65px;
 }
 
-/* ===== WRAPPER ===== */
+/* ===== WRAPPER (UNCHANGED BEHAVIOR) ===== */
 .carousel-wrapper{
   width:100%;
   min-height:620px;
@@ -388,10 +386,12 @@ html, body{
   justify-content:center;
   align-items:center;
   perspective:2000px;
-  overflow:hidden; /* FIX: prevents horizontal overflow */
+
+  /* IMPORTANT: keep original behavior */
+  overflow:visible;
 }
 
-/* ===== CAROUSEL ===== */
+/* ===== CAROUSEL (ORIGINAL STYLE) ===== */
 .carousel{
   position:relative;
   width:100%;
@@ -405,7 +405,7 @@ html, body{
   animation-play-state:paused;
 }
 
-/* ===== GLOW BACKGROUND ===== */
+/* ===== GLOW (UNCHANGED) ===== */
 .carousel::before{
   content:"";
   position:absolute;
@@ -423,7 +423,7 @@ html, body{
   filter:blur(65px);
 }
 
-/* ===== CERTIFICATE CARDS ===== */
+/* ===== CARD (ORIGINAL SIZE + STYLE) ===== */
 .carousel-item{
   position:absolute;
   width:540px;
@@ -443,14 +443,14 @@ html, body{
   background:#ffffff;
 }
 
-/* ===== HOVER EFFECT ===== */
+/* hover (UNCHANGED) */
 .carousel-item:hover{
   transform:scale(1.06) !important;
   border-color:#3b82f6;
   box-shadow:0 28px 60px rgba(59,130,246,.35);
 }
 
-/* ===== 3D RING POSITIONING ===== */
+/* ===== ORIGINAL 3D RING (THIS IS THE KEY) ===== */
 .carousel-item:nth-child(1){
   transform:rotateY(0deg) translateZ(520px);
 }
@@ -471,7 +471,7 @@ html, body{
   transform:rotateY(288deg) translateZ(520px);
 }
 
-/* ===== ANIMATION ===== */
+/* animation (UNCHANGED) */
 @keyframes rotateCarousel{
   from{
     transform:rotateY(0deg);
@@ -481,7 +481,12 @@ html, body{
   }
 }
 
-/* ===== MOBILE FIX ===== */
+/* =========================
+   MOBILE FIX (ONLY SAFETY)
+   NO SIZE CHANGES
+   NO 3D CHANGES
+   NO MOTION CHANGES
+========================= */
 @media(max-width:600px){
 
   #certifications h2{
@@ -491,14 +496,14 @@ html, body{
   .carousel-wrapper{
     min-height:420px;
     margin-top:25px;
-    perspective:1000px;
-    overflow:hidden; /* IMPORTANT FIX */
+
+    /* prevent clipping only */
+    overflow:visible;
   }
 
   .carousel{
     height:320px;
     max-width:100%;
-    animation:rotateCarousel 25s linear infinite;
   }
 
   .carousel::before{
@@ -507,41 +512,10 @@ html, body{
     filter:blur(40px);
   }
 
+  /* DO NOT TOUCH translateZ OR RING GEOMETRY */
   .carousel-item{
     width:300px;
     height:210px;
-    backface-visibility:hidden;
-  }
-
-  .carousel-item img{
-    object-fit:contain;
-  }
-
-  /* disable hover on mobile */
-  .carousel-item:hover{
-    transform:none !important;
-    box-shadow:0 22px 45px rgba(0,0,0,.35);
-  }
-
-  /* reduced radius to prevent overflow */
-  .carousel-item:nth-child(1){
-    transform:rotateY(0deg) translateZ(250px);
-  }
-
-  .carousel-item:nth-child(2){
-    transform:rotateY(72deg) translateZ(250px);
-  }
-
-  .carousel-item:nth-child(3){
-    transform:rotateY(144deg) translateZ(250px);
-  }
-
-  .carousel-item:nth-child(4){
-    transform:rotateY(216deg) translateZ(250px);
-  }
-
-  .carousel-item:nth-child(5){
-    transform:rotateY(288deg) translateZ(250px);
   }
 }
 
