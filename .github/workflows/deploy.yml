@@ -23,4 +23,5 @@ jobs:
       - name: Deploy frontend to S3
         run: |
           aws s3 sync ./frontend s3://shumba-cloud-portfolio \
-            --delete
+            --delete \
+            --cache-control "max-age=31536000"
