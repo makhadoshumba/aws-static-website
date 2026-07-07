@@ -17,5 +17,5 @@ This here is a solution for efficiency.
 Here is a diagram explaining the whole project:
 
 <p align="center">
-  <img src="assets/architecture-diagram.png" width="900">
+  <img src="frontend/assets/architecture-diagram.png" width="900">
 </p>
