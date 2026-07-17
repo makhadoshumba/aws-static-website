@@ -15,7 +15,7 @@ This is the perfect and efficient solution for a very capable but lazy engineer 
 
 This here is a solution for efficiency.
 
-Here is a diagram explaining the whole project:
+## Architecture
 
 <p align="center">
   <img src="frontend/assets/architecture-diagram.png" width="900">
