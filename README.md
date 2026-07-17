@@ -1,3 +1,4 @@
+# Portfolio Website (AWS S3 Hosted Web With A CI/CD pipeline integrated)
 I've created an AWS S3 hosted static website. I locally compiled my code using VS and hosted it in my S3 bucket, then I was able to host it through the bucket using the static website hosting feature on AWS.
 
 I figured if this were an actual live website for an enterprise, modifications would be something that needs to be done most of the time to update the website with presumably new information, whatever the case may be.
